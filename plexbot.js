@@ -11,12 +11,13 @@ client.on("ready", () => {
 client.on("message", (message) => {
 
     // catch the inital request and store the movie title and requesting user
+    // TODO: change to the MellowBot confirmation, which contains the exact title:  "@Tom Flakes, Requested Star Trek: Discovery in Ombi.""
     if (message.content.startsWith("request movie")) {
         title = message.content.substr(14, message.content.length);
         user = message.author;
 
-        console.log(user.username + " has requested " + title.toLowerCase());
         comboMap.set(title.toLowerCase(), user);
+        console.log(user.username + " has requested " + title.toLowerCase());
     }
 
     // catch the inital request and store the tv title and requesting user
@@ -24,8 +25,8 @@ client.on("message", (message) => {
         title = message.content.substr(11, message.content.length);
         user = message.author;
 
-        console.log(user.username + " has requested " + title.toLowerCase());
         comboMap.set(title.toLowerCase(), user);
+        console.log(user.username + " has requested " + title.toLowerCase());
     }
 
     // if the message is sent by the Plex webhook  
@@ -35,7 +36,7 @@ client.on("message", (message) => {
         for (currentEntry of comboMap.entries()) {
             if (message.content.toLowerCase().startsWith(currentEntry[0])) {
                 message.channel.send(currentEntry[1] + " Your request is complete.");
-                console.log(message.channel.send(currentEntry[1] + " Your request is complete."));
+                console.log("Hey " + currentEntry[1] + "! Your request is complete. " + currentEntry[0] + " is now available!");
                 console.log(comboMap.entries());
                 // comboMap.delete(currentEntry)  // remove key/value pair after the movie is added
             }
