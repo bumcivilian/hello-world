@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const config = require("./config.json");
+require("./")
 // let hook = new Discord.WebhookClient('665298340178821155', 'oSD6h7znBk7BAg4G3Y28iw_XMTh-xMp8z1Vj6BwTBQ4jC_rEXaKwqk7LhY6C6WAavcdK');
 let comboMap = new Map(); // map holding {title, user}
 var title; // title of the movie or tv show
@@ -46,4 +48,4 @@ client.on("message", (message) => {
     // currentEntry[1] == user
 });
 
-client.login("NjY1MjczMDQwOTk2Nzk0MzY5.XhjPOw.FdrqWc1s_zqydQAFXVe_xq-U8os");
+client.login(config.token);
