@@ -35,9 +35,8 @@ client.on("message", (message) => {
     if (message.author.username == "Plex") {
         for (currentEntry of comboMap.entries()) {
             if (message.content.toLowerCase().startsWith(currentEntry[0])) {
-                message.channel.send(currentEntry[1] + " Your request is complete.");
+                message.channel.send("Hey " + currentEntry[1] + "! Your request is complete. " + currentEntry[0] + " is now available!");
                 console.log("Hey " + currentEntry[1] + "! Your request is complete. " + currentEntry[0] + " is now available!");
-                console.log(comboMap.entries());
                 // comboMap.delete(currentEntry)  // remove key/value pair after the movie is added
             }
         }
